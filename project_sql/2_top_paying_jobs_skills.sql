@@ -41,6 +41,8 @@ ORDER BY
 
 
 /*
+Asked to CHATGPT for insights:
+
 Here are the results for the skills analysis from your 10 top data analyst roles:
 
 Skill	Appearances
