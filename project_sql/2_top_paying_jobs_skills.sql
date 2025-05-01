@@ -6,8 +6,74 @@ Question: What skills are required for the top-paying data analyst jobs?
 with top salaries
 */
 
-
 -- Remote Jobs skills
+
+WITH top_paying_jobs AS (
+SELECT
+    job_id,
+    job_title,
+    salary_year_avg,
+    name AS company_name
+FROM
+    job_postings_fact AS j
+LEFT JOIN company_dim AS c ON j.company_id = c.company_id
+WHERE
+    job_title_short = 'Data Analyst' AND
+    job_location = 'Anywhere' AND
+    salary_year_avg IS NOT NULL
+ORDER BY
+    salary_year_avg DESC
+LIMIT 12
+)
+
+SELECT
+    top_paying_jobs.*,
+    s.skills
+FROM top_paying_jobs
+INNER JOIN skills_job_dim AS sjd ON top_paying_jobs.job_id = sjd.job_id
+INNER JOIN skills_dim AS s ON sjd.skill_id = s.skill_id
+ORDER BY
+    salary_year_avg DESC;
+
+
+
+-- Remote Jobs skills (Summarized for plot)
+
+WITH top_paying_jobs AS (
+SELECT
+    job_id,
+    job_title,
+    salary_year_avg,
+    name AS company_name
+FROM
+    job_postings_fact AS j
+LEFT JOIN company_dim AS c ON j.company_id = c.company_id
+WHERE
+    job_title_short = 'Data Analyst' AND
+    job_location = 'Anywhere' AND
+    salary_year_avg IS NOT NULL
+ORDER BY
+    salary_year_avg DESC
+LIMIT 12
+)
+
+SELECT
+    s.skills,
+    COUNT(s.skills) AS counting_skills
+FROM top_paying_jobs
+INNER JOIN skills_job_dim AS sjd ON top_paying_jobs.job_id = sjd.job_id
+INNER JOIN skills_dim AS s ON sjd.skill_id = s.skill_id
+GROUP BY
+    s.skills
+ORDER BY
+    counting_skills DESC
+LIMIT 10;
+
+
+
+
+
+-- Remote Jobs skills (Skills agrupadas)
 
 WITH top_paying_jobs AS (
 SELECT
@@ -26,15 +92,17 @@ ORDER BY
     salary_year_avg DESC
 LIMIT 10
 )
-
-SELECT
-    top_paying_jobs.*, -- selects all columns
-    s.skills
-FROM top_paying_jobs
-INNER JOIN skills_job_dim AS sjd ON top_paying_jobs.job_id = sjd.job_id
-INNER JOIN skills_dim AS s ON sjd.skill_id = s.skill_id
-ORDER BY
-    salary_year_avg DESC
+SELECT 
+    tpj.job_id,
+    tpj.job_title,
+    tpj.salary_year_avg,
+    tpj.company_name,
+    STRING_AGG(s.skills, ', ') AS skill_list
+FROM top_paying_jobs AS tpj
+JOIN skills_job_dim AS sjd ON tpj.job_id = sjd.job_id
+JOIN skills_dim AS s ON sjd.skill_id = s.skill_id
+GROUP BY tpj.job_id, tpj.job_title, tpj.salary_year_avg, tpj.company_name
+ORDER BY tpj.salary_year_avg DESC;
 
 
 
