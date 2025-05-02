@@ -1,5 +1,3 @@
-# SQL_Project_Data_Job_Analysis
-
 ## 📚 Sobre o Projeto
 Este repositório foi criado como parte do meu treinamento prático em SQL, seguindo o projeto proposto pelo Luke Barousse no vídeo SQL Project for Beginners | Data Job Analysis.
 LINK Curso/Material: https://www.youtube.com/watch?v=7mz73uXD9DA
