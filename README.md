@@ -40,7 +40,11 @@ O foco principal é desenvolver habilidades práticas em SQL, reforçando concei
 - Tomar decisões baseadas em dados extraídos via consultas SQL
 - Este projeto não tem fins comerciais — é puramente educacional e voltado para prática pessoal.
 
-Material do treinamento [sql_load](/sql_load/)
+Queries executadas durante o treinamento [sql_load](/sql_load/)
+
+- Como plus, exercitei a criação de gráficos utilizando as bibliotecas do Python Matplotlib e Seaborn.
+
+Para acessar clique aqui: [visual](/project_py/visualization.ipynb/)
 
 
 ## 📚 Insights do projeto
@@ -75,7 +79,7 @@ Detalhamento da análise:
 
 -  **Variedade em nomes de cargos:** Não existe um nome padrão para o título deste cargo. De Analista de Dados até Diretor of Analytics refletem a diversidade de cargos e especialização nesta área.
 
-![Top_Paying_Roles](images\Q1.png)
+![Top_Paying_Roles](images/Q1.png)
 
 
 ### 2. Top Paying Data Analyst Skills
@@ -112,7 +116,7 @@ ORDER BY
 Detalhamento da análise:
 -  **Conclusão da Análise:** A habilidade mais requisitada no mercado para altos salários entre analistas de dados é SQL, seguida por Python e Tableau. Surpreendentemente, o Power BI não apareceu entre as mais demandadas, enquanto o Excel continua firmemente entre as 5 principais skills, desafiando as constantes previsões de sua "morte" que circulam há anos.
 
-![Top_Paying_Roles_Skills](images\Q2.png)
+![Top_Paying_Roles_Skills](images/Q2.png)
 
 ### 3. Top Demanded Skills
 
@@ -134,7 +138,7 @@ LIMIT 5;
 Detalhamento da análise:
 -  **Conclusão da Análise:** Olhando para as skills mais deamandadas pelo mercado para analistas de dados, independentemente do salário, podemos perceber ainda a liderança dos conhecimentos em SQL, EXCEL e PYTHON conforme gráfico abaixo. Como ferramentas de visualização temos TABLEU e POWER BI constando como 4º e 5º colocados.
 
-![Top Demanded](images\Q3.png)
+![Top Demanded](images/Q3.png)
 
 ### 4. Top Demanded Skills (High Salary)
 
@@ -160,7 +164,7 @@ Detalhamento da análise:
 
 -  **Princpais:** No gráfico abaixo podemos verificar as principais skills, as cinco primeiras são - SVN, Solidity, Couchbase, Datarobot e golang. Isso demonstra que é preciso aprofundar em Machine Learning, banco de dados NoSQL e outras linguagens para alcançar os maiores salários.
 
-![Top Demanded_HighSalariy](images\Q4.png)
+![Top Demanded_HighSalariy](images/Q4.png)
 
 
 ### 5. Optimal_skills.sql (Salary and Demand)
@@ -192,4 +196,4 @@ Detalhamento da análise:
     O top cinco entre habilidades que mais foram requeridas e com maiores salários são: Go, Confluence, Hadoop, Snowflake e Azure.
 
 
-![Optimal Skills](images\Q5.png)
+![Optimal Skills](images/Q5.png)
