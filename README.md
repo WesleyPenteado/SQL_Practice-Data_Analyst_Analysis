@@ -4,7 +4,7 @@
 Este repositório foi criado como parte do meu treinamento prático em SQL, seguindo o projeto proposto pelo Luke Barousse no vídeo SQL Project for Beginners | Data Job Analysis.
 LINK Curso/Material: https://www.youtube.com/watch?v=7mz73uXD9DA
 
-O objetivo do projeto é explorar e praticar a construção de consultas/queries SQL (Local consultas: [project_sql](/project_sql/)) em um banco de dados fictício relacionado ao mercado de trabalho na área de dados, incluindo vagas para:
+O objetivo do projeto é explorar e praticar a construção de consultas/queries SQL em um banco de dados relacionado ao mercado de trabalho na área de dados, incluindo vagas para:
 
 - Analistas de Dados (Data Analysts)
 - Engenheiros de Dados (Data Engineers)
@@ -22,7 +22,7 @@ Ao longo do projeto, foram desenvolvidas habilidades práticas em:
 - Git e Github para gestão de alterações e publicação do projeto.
 
 ## 📊 Base de Dados
-A base de dados contém informações realistas (mas fictícias) sobre vagas de emprego, incluindo:
+A base de dados contém informações sobre vagas de emprego, incluindo:
 
 - Cargo e título da vaga
 - Empresa contratante
