@@ -165,7 +165,7 @@ Detalhamento da análise:
 ![Top Demanded_HighSalariy](images/Q4.png)
 
 
-### 5. Optimal_skills.sql (Salary and Demand)
+### 5. Optimal_skills (Salary and Demand)
 
 ``` sql
 SELECT  
@@ -195,3 +195,28 @@ Detalhamento da análise:
 
 
 ![Optimal Skills](images/Q5.png)
+
+
+### 5. Job Postings per Month
+
+``` sql
+SELECT
+    COUNT(job_id) AS job_counting,
+    TO_CHAR(job_posted_date, 'Mon') AS month_abbr
+FROM job_postings_fact
+WHERE
+    job_title_short = 'Data Analyst'
+    AND EXTRACT(YEAR FROM job_posted_date) = '2023'
+GROUP BY
+    month_abbr,
+    EXTRACT(MONTH FROM job_posted_date)
+ORDER BY
+    EXTRACT(MONTH FROM job_posted_date)
+```
+Detalhamento da análise:
+-  **Conclusão:** Observa-se um pico significativo de publicações de vagas no mês de janeiro, seguido por outro aumento em agosto. Apesar de os dados disponíveis se restringirem ao ano de 2023, é plausível que o volume elevado em janeiro esteja relacionado à liberação dos orçamentos anuais, o que comumente impulsiona a abertura de novas posições.
+
+![Jobs per Month](images/Q6.png)
+
+
+
