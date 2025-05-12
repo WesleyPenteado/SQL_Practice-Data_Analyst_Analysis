@@ -40,8 +40,8 @@ ORDER BY skill, is_remote;
 SELECT 
     ROUND(
             AVG(
-                DATE_PART('day', -- extract only day of interval
-                    job_posted_date - DATE_TRUNC('month', job_posted_date) -- truncate job data to the first day of each month
+                DATE_PART('day', -- extrai somente o dia no intervalo
+                    job_posted_date - DATE_TRUNC('month', job_posted_date) -- truca/trava a data para o primeiro dia de cada mês
                 )
             )::numeric,
     2) AS avg_days_from_start
