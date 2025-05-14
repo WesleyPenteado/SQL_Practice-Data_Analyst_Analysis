@@ -50,7 +50,7 @@ LIMIT
     5;
 
 
-Quais são as top 10 combinações de habilidades mais frequentes em vagas?
+-- Quais são as top 10 combinações de habilidades mais frequentes em vagas?
 
 SELECT 
     skills_combination,

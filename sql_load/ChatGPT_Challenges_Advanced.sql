@@ -4,15 +4,9 @@ Existe uma correlação entre vagas remotas e exigência de certas habilidades (
 
 Qual é o tempo médio entre o início do mês e a postagem de uma vaga (indicando urgência)?
 
-Empresas grandes (size = 'Enterprise') exigem mais skills por vaga que pequenas empresas?
-
 Crie uma lista das “vagas mais técnicas”, ou seja, com o maior número de skills associadas.
 
-Crie um ranking das skills mais associadas a vagas com título que contenha ‘Data’.
-
 Qual o número médio de skills por vaga para cargos remotos vs. presenciais?
-
-Qual o “skill gap” entre o que é exigido em vagas de Junior, Pleno e Sênior (baseado em título)?
 
 */
 
@@ -47,3 +41,40 @@ SELECT
     2) AS avg_days_from_start
 FROM job_postings_fact
 WHERE job_posted_date IS NOT NULL;
+
+
+/*
+Crie uma lista das “vagas mais técnicas”, ou seja, com o maior número de 
+skills associadas.
+*/
+
+SELECT
+    j.job_id,
+    j.job_title,
+    COUNT(s.skill_id) AS skill_count
+FROM skills_job_dim s
+JOIN job_postings_fact j ON s.job_id = j.job_id
+GROUP BY j.job_id, j.job_title
+ORDER BY skill_count DESC
+LIMIT 10;
+
+
+/*
+Qual o número médio de skills por vaga para cargos remotos vs. presenciais?
+*/
+
+WITH sjd_table AS (
+SELECT
+    job_id,
+    COUNT(skill_id) AS skill_count
+FROM skills_job_dim
+GROUP BY job_id
+ORDER BY skill_count DESC
+)
+SELECT
+    j.job_work_from_home,
+    ROUND(AVG(skill_count),2) AS avg_skill
+FROM sjd_table AS sjd
+LEFT JOIN job_postings_fact AS j ON j.job_id = sjd.job_id
+GROUP BY
+    j.job_work_from_home;
